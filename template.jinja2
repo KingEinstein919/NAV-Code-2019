@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</head>
+
+<body>{% for place in places %}
+    <div class="ui card">
+        <div class="content"> <a class="header">{{place}}</a> </div>
+        <div class="extra content"> <i class="user icon"></i> Capacity </div>
+        <div class="ui small green progress" data-percent="75" id="bar{{loop.index}}">
+            <div class="bar"></div>
+        </div>
+    </div>
+    <script>
+        $('#bar{{loop.index}}').progress({percent: Math.random()*100});
+    </script>{% endfor %}
+</body>
+
+</html>
